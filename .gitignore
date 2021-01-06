@@ -1,0 +1,6 @@
+Signature
+**/__pycache__
+logs/**
+documents
+config/config.json
+output.html

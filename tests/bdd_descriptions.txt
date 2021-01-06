@@ -1,0 +1,22 @@
+configuration:
+    sender_email
+    sender_details
+    email_subject
+    email_text
+    cv_filename
+    letter_filename
+    certificates_filename
+
+email_test:
+    given   configuration
+    and     receiver_email
+    and     sender_email_password
+    when    sending email
+    then    the email should be received at the receiver_email address
+
+log_test:
+
+autofill_test:
+
+scrape_test:
+

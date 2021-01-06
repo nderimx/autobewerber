@@ -1,0 +1,10 @@
+{
+    "sender_name"           : "John Doe",
+    "sender_email"          : "johndoe1888@gmail.com",
+    "docs_directory"        : "testdata/documents",
+    "cv"                    : "cv.pdf",
+    "certificates"          : "certificates.pdf",
+    "email_message"         : "message_without_greeting.txt",
+    "application_letter"    : "Bewerbungsschreiben.pdf",
+    "app_letter_template"   : "testdata/documents/application_letter_template/Bewerbungsschreiben.html"
+}
