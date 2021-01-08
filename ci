@@ -1,1 +1,7 @@
-python -m unittest discover -s tests -t src
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y python3-pip
+sudo apt install -y wkhtmltopdf
+pip3 install -r install/requirements.txt
+python3 -m unittest discover -s tests -t src
+
