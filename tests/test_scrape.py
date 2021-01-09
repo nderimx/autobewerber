@@ -25,6 +25,7 @@ class TestScrape(unittest.TestCase):
 
         for i in range(5):
             self.assertTrue(attributes[i], "Attributes on the ad are empty")
+            self.assertTrue(attributes[i]!="0", "There was an error getting the attributes from html")
             print(attributes[i])
 
     def test_link_getter(self):

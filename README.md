@@ -15,7 +15,9 @@ _Nur Inserat Link und Empfaenger Email sind noetig um dich zu bewerben, das Vorb
 `    "certificates"          : "Zeugnisse_und_Diplome.pdf",`
 `    "email_message"         : "message_without_greeting.txt",`
 `    "application_letter"    : "Bewerbungsschreiben.pdf",`
-`    "app_letter_template"   : "documents/application_letter_template/Bewerbungsschreiben.html"`
+`    "app_letter_template"   : "documents/application_letter_template/Bewerbungsschreiben.html",`
+`    "search_term"           : "Controlling",`
+`    "host"                  : "https://www.jobs.ch"`
 `}`
 
 #### Bewerbungsschreiben.html id's die von autofiller.py identifiziert und benutzt werden:
@@ -25,3 +27,8 @@ _Nur Inserat Link und Empfaenger Email sind noetig um dich zu bewerben, das Vorb
 * 'Datum'
 * 'Stellenbeschreibung'
 * 'Ansprache'
+
+
+
+### TODO:
+* The installer needs to be a python file that detects the os, and modifies some configurations accordingly (not the config.json files)

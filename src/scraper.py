@@ -36,9 +36,21 @@ def scrape_links(search_term):
     return jobs.links
 
 def get_details_from_soup(soup):
-    unternehmen         = soup.find('a', {"data-cy":"company-tab-title"}).string
-    encoded_address = soup.find('table', {'class' : 'DetailCompanyBoxComponent___StyledTable-sc-15wqweb-3 czAVYV'}).find(string='Location').parent.parent.next_sibling
-    proto_address = str(encoded_address).replace("<td>", "").replace("</br></td>", "").replace("<!-- -->", "")
+    try:
+        unternehmen         = soup.find('a', {"data-cy":"company-tab-title"}).string
+    except Exception as e:
+        print("Coudn't find unternehmen in soup: %s" % e)
+        with open('debug.txt', 'w') as debug_output:        #dubug
+            debug_output.write(soup.prettify())             #debug
+        return "0", "0", "0", "0", "0"
+    try:
+        encoded_address = soup.find('table', {'class' : 'DetailCompanyBoxComponent___StyledTable-sc-15wqweb-3 czAVYV'}).find(string='Location').parent.parent.next_sibling
+    except Exception as e:
+        print("Coudn't find encoded_address in soup: %s" % e)
+        with open('debug.txt', 'w') as debug_output:        #dubug
+            debug_output.write(soup.prettify())             #debug
+        return "0", "0", "0", "0", "0"
+    proto_address = str(encoded_address).replace("<td>", "").replace("</br></td>", "").replace("<!-- -->", "").replace("</td>", "")
     if "<br>" in proto_address:
         full_address = proto_address.split("<br>")
     else:

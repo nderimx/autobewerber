@@ -6,5 +6,7 @@
     "certificates"          : "certificates.pdf",
     "email_message"         : "message_without_greeting.txt",
     "application_letter"    : "Bewerbungsschreiben.pdf",
-    "app_letter_template"   : "testdata/documents/application_letter_template/Bewerbungsschreiben.html"
+    "app_letter_template"   : "testdata/documents/application_letter_template/Bewerbungsschreiben.html",
+    "search_term"           : "Controlling",
+    "host"                  : "https://www.jobs.ch"
 }

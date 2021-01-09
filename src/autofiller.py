@@ -23,13 +23,15 @@ def application_filler(html_file, output_file, unternehmen, strasse, platz, stel
             output.write(soup.prettify())
     else:
         options = {
-            'page-size': 'Letter'
+            'enable-local-file-access' : '',
+            'page-size'                 : 'Letter'
         }
         # pdfkit.from_string(str(soup), html_file.split('.')[0]+'.pdf', options=options)
 
         # Deprecate this after resolving the XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-prie' bug when using from_string,
         # because this is too slow
-        with open('output.html', 'w') as output:
+        html_output = os.path.dirname(html_file)+"/output.html"
+        with open(html_output, 'w') as output:
             output.write(soup.prettify())
-        pdfkit.from_file("output.html", output_file, options=options)
-        os.remove("output.html")
+        pdfkit.from_file(html_output, output_file, options=options)
+        os.remove(html_output)

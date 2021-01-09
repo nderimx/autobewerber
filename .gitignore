@@ -4,3 +4,4 @@ logs/**
 documents
 config/config.json
 output.html
+debug.txt
