@@ -26,7 +26,7 @@ def save_job(log_file, unternehmen, strasse, platz, stellenbeschreibung, ansprac
     # df.to_csv("application.csv", index = False, index_label = False, mode = "a")
     datum               = date.today().strftime("%d.%m.%Y")
     with open(log_file, 'a') as csv_file:
-        csv_file.write(link+','+unternehmen+','+strasse+','+platz+',\''+stellenbeschreibung+'\','+ansprache+','+receiver+','+datum+','+zustand+'\n')
+        csv_file.write(link+','+unternehmen+','+strasse+','+platz+',\"'+stellenbeschreibung+'\",'+ansprache+','+receiver+','+datum+','+zustand+'\n')
     print(unternehmen, strasse, platz, stellenbeschreibung, ansprache, link)
 
 def bewerben(password, link, receiver, unternehmen, strasse, platz, stellenbeschreibung, ansprache):
@@ -86,10 +86,14 @@ def bewerber_shell():
 
         unternehmen, strasse, platz, stellenbeschreibung, ansprache = scraper.scrape_ad(link)
 
-        while unternehmen == "0":
+        repeated = 0
+        while unternehmen == "0" and repeated < 10:
             print("Repeating due to error")
             unternehmen, strasse, platz, stellenbeschreibung, ansprache = scraper.scrape_ad(link)
+            repeated += 1
             
+        if repeated >= 10:
+            continue
 
         print("Are the details ok?")
         display_details(unternehmen, strasse, platz, stellenbeschreibung, ansprache)
